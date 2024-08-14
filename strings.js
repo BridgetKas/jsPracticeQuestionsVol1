@@ -73,3 +73,11 @@ function parameterizeString(str){
 }
 
 parameterizeString("Robin Singh from USA.")
+
+// Write a JavaScript function to capitalize the first letter of a string.
+function capitalizeString(str){
+    const capitalString = str.charAt(0).toUpperCase() + str.slice(1)
+    console.log(capitalString)
+}
+capitalizeString('js string exercises')
+capitalizeString('namugga bridget')
