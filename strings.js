@@ -81,3 +81,11 @@ function capitalizeString(str){
 }
 capitalizeString('js string exercises')
 capitalizeString('namugga bridget')
+
+// Write a JavaScript function to capitalize the first letter of each word in a string.
+function capitalize(str){
+    const string = str.split(' ').map(item => (item.charAt(0).toUpperCase() + item.slice(1))).join(' ')
+    console.log(string)
+}
+
+capitalize('js string exercises')
