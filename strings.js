@@ -63,3 +63,13 @@ function abbreviateString(input) {
   }
 
   abbreviateString ('Namugga Bridget Kasujja')
+
+// Write a JavaScript function to parameterize a string.
+
+function parameterizeString(str){
+    /** join() is an array method that creates and returns a new string  */
+    let lowerCaseStr = str.toLowerCase().split(' ').join('-')
+    console.log(lowerCaseStr)
+}
+
+parameterizeString("Robin Singh from USA.")
