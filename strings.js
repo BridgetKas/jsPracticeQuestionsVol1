@@ -89,3 +89,49 @@ function capitalize(str){
 }
 
 capitalize('js string exercises')
+
+// Write a JavaScript function that takes a string with both lowercase and upper case letters as a parameter.
+//  It converts upper case letters to lower case, and lower case letters to upper case.
+function swapCase(input) {
+    // Initialize an empty string to store the result
+    let result = '';
+  
+    // Iterate through each character in the input string
+    for (let i = 0; i < input.length; i++) {
+      const char = input[i];
+  
+      // Check if the character is uppercase
+      if (char === char.toUpperCase()) {
+        // Convert to lowercase and add to result
+        result += char.toLowerCase();
+      } else {
+        // Convert to uppercase and add to result
+        result += char.toUpperCase();
+      }
+    }
+  
+    return result;
+  }
+  
+//   Write a JavaScript function to convert a string into camel case.
+
+function camelize(str) {
+    const string = str.split(' ')
+
+    for (let i = 0; i<string.length;i++){
+        string[i].charAt(0).toUpperCase() + string.slice(1)
+    }
+    console.log(string.join(''))
+}
+
+camelize('JavaScript Exercises')
+camelize('JavaScriptExercises')
+
+// Write a JavaScript function to uncommelize a string.
+function uncommelize(str,separator) {
+    const string = str.split(' ')
+    const uncommelizedStr = string.map (item =>(item.charAt(0).toLowerCase() + item.slice(1)))
+    console.log(uncommelizedStr.join('_'))
+}
+
+uncommelize('hello World')
