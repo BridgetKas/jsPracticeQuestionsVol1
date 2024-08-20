@@ -135,3 +135,17 @@ function uncommelize(str,separator) {
 }
 
 uncommelize('hello World')
+
+// Write a JavaScript function to concatenate a given string n times (default is 1).
+
+function repeatString(str,n) {
+    if (n <= 0 || n === 'undefined'){
+        console.log('Enter a valid number')
+    }else{
+        console.log(n)
+        console.log(str.repeat(n))
+    }
+ 
+}
+
+repeatString('HA', 'undefined')
