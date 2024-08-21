@@ -139,13 +139,69 @@ uncommelize('hello World')
 // Write a JavaScript function to concatenate a given string n times (default is 1).
 
 function repeatString(str,n) {
-    if (n <= 0 || n === 'undefined'){
+    if (n <= 0){
         console.log('Enter a valid number')
-    }else{
-        console.log(n)
-        console.log(str.repeat(n))
+    } else if (typeof(n) === 'undefined'){
+        n = 1
     }
- 
+    console.log('REPEATSTRING', str.repeat(n))
+ }
+
+repeatString('HA')
+
+// Solution 2
+const repeat = (str, count) => {
+    // If count parameter is not provided, set it to 1
+    if(typeof(count) == "undefined") {
+    count =1;
+  }
+  // Return an empty string if count is less than 1, otherwise repeat the string count times
+  console.log( count < 1 ? '' : new Array(count + 1).join(str));
 }
 
-repeatString('HA', 'undefined')
+repeat('HA', 0)
+
+// 14. Write a JavaScript function to insert a string within a string at a particular position (default is 1).
+
+function insertString(string,word,position) {
+    let stringToArray = string.split('')
+    // console.log(stringToArray)
+    if(typeof word === 'undefined' && typeof position === 'undefined'){
+        console.log(string)
+        return
+    }else if (typeof position === 'undefined'){
+        const newString = stringToArray.splice(1,0,word)
+        console.log('PositionString',  stringToArray.join(' '))
+        return
+    }else {
+        const newString = stringToArray.splice(position,0,word)
+        console.log('PositionAndWordString',  stringToArray.join(' '))
+
+        return;
+    }
+}
+
+// insertString('We are doing some exercises.')
+insertString('We are doing some exercises.','JavaScript ')
+insertString('We are doing some exercises.','JavaScript ',18)
+
+// Improved Version
+function insertString(string, word, position) {
+    if (typeof word === 'undefined') {
+        console.log(string);
+        return;
+    }
+
+    if (typeof position === 'undefined') {
+        position = 1; // Default to position 1 if not provided
+    }
+
+    if (position < 0) {
+        position = 0; // Handle negative positions by setting to 0
+    } else if (position > string.length) {
+        position = string.length; // Handle positions greater than the string length by setting to the end
+    }
+
+    const newString = string.slice(0, position) + word + string.slice(position);
+    console.log(`InsertedString: ${newString}`);
+}
