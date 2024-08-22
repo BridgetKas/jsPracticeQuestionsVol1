@@ -205,3 +205,64 @@ function insertString(string, word, position) {
     const newString = string.slice(0, position) + word + string.slice(position);
     console.log(`InsertedString: ${newString}`);
 }
+
+
+//Write a JavaScript function that format a number in a human-readable string with the correct suffix, such as 1st, 2nd, 3rd, etc.
+function formatNumber(number) {
+    let numberToString = number.toString()
+    if(typeof number === 'undefined'){
+        console.log('Enter a valid number ')
+    }
+
+    if (numberToString.endsWith(1)) {
+        console.log(`${numberToString}st`)
+    }else if (numberToString.endsWith(2)) {
+        console.log(`${numberToString}nd`)
+    }else if (numberToString.endsWith(3)) {
+        console.log(`${numberToString}rd`)
+    }else {
+        console.log(`${numberToString}th`)
+    }
+}
+
+formatNumber(1)
+formatNumber(8)
+formatNumber(301)
+formatNumber(402)
+formatNumber(57)
+
+// Improved code
+function formatNumber(number) {
+    if (typeof number === 'undefined' || isNaN(number)) {
+        console.log('Enter a valid number');
+        return;
+    }
+
+    const numberToString = number.toString();
+    const lastDigit = number % 10;
+    const lastTwoDigits = number % 100;
+
+    let suffix;
+
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 13) {
+        suffix = 'th';
+    } else {
+        switch (lastDigit) {
+            case 1:
+                suffix = 'st';
+                break;
+            case 2:
+                suffix = 'nd';
+                break;
+            case 3:
+                suffix = 'rd';
+                break;
+            default:
+                suffix = 'th';
+        }
+    }
+
+    const formattedNumber = `${numberToString}${suffix}`;
+    console.log(formattedNumber);
+    return formattedNumber;
+}
