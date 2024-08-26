@@ -298,8 +298,7 @@ function splitString(str,num) {
     let i = 0
     let splitArr = []
     if (typeof num !== 'number') {
-        console.log('Enter a valid num')
-        return
+        return str
     }
 
     if(num > str.length) {
@@ -316,3 +315,21 @@ function splitString(str,num) {
 }
 
 console.log (splitString('MyLoveMorgan'))
+
+// Write a JavaScript function to count substrings in a string.
+// NB: When comparing strings remember that strict equality doesn't coercion .so always use either toLowerCase or toUpperCase
+function count(str,sub) {
+    let total = 0
+    if(typeof str !== 'string') {
+        return 
+    }
+    let splitStr = str.toLowerCase().split(' ')
+    for (let i=0; i < splitStr.length; i++){
+        if(splitStr[i] === sub) {
+            total ++
+        }
+    }
+    return total
+}
+
+console.log(count("The quick brown fox jumps over the lazy dog", 'fox','false'))
