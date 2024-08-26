@@ -266,3 +266,53 @@ function formatNumber(number) {
     console.log(formattedNumber);
     return formattedNumber;
 }
+
+// Write a JavaScript function to truncate a string if it is longer than the specified number of characters. 
+// Truncated strings will end with a translatable ellipsis sequence ("...") (by default) or specified characters.
+
+function truncateStr(str,num,mark) {
+    if (typeof str !== 'string' ) {
+        console.log('Enter a valid sentence')
+        return
+    }
+    if(typeof num !== 'number'){
+        console.log('enter a number')
+        return
+    } 
+    if(num >= str.length){
+        return str
+    }else {
+        const truncatedString = str.slice(0,num) + mark
+        return truncatedString
+
+    }
+    
+}
+
+console.log (truncateStr('We are doing JS string exercises.','67'))
+console.log (truncateStr('We are doing JS string exercises.', 100))
+console.log (truncateStr('We are doing JS string exercises.', 15 ,'!!!'))
+
+//  Write a JavaScript function to chop a string into chunks of a given length.
+function splitString(str,num) {
+    let i = 0
+    let splitArr = []
+    if (typeof num !== 'number') {
+        console.log('Enter a valid num')
+        return
+    }
+
+    if(num > str.length) {
+        return
+    }else {
+        while(i < str.length) {
+            let splitStr = str.slice(i , num + i)
+            splitArr.push(splitStr)
+            i += num
+        }
+        
+    }
+    return splitArr
+}
+
+console.log (splitString('MyLoveMorgan'))
