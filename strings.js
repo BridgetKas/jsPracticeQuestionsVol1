@@ -333,3 +333,19 @@ function count(str,sub) {
 }
 
 console.log(count("The quick brown fox jumps over the lazy dog", 'fox','false'))
+
+// Write a JavaScript function that takes a positive integer and reverses the binary representation of that integer. 
+// Finally return the decimal version of the binary string.
+// NB: if you want to change a number from one base to another use toString(base) function
+function reverseBinary(num) {
+    // Convert the number to its binary representation
+    let binaryStr = num.toString(2);
+    
+    // Reverse the binary string
+    let reversedBinaryStr = binaryStr.split('').reverse().join('');
+    
+    // Convert the reversed binary string back to a decimal number
+    let reversedDecimal = parseInt(reversedBinaryStr, 2);
+    
+    return reversedDecimal;
+}
