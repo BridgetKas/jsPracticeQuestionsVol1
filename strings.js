@@ -349,3 +349,115 @@ function reverseBinary(num) {
     
     return reversedDecimal;
 }
+
+
+// Write a JavaScript function that can pad (left, right) a string to get to a specific length.
+function padString(char,targetLength, sign='',direction='left') {
+    const string = char.toString()
+    if(typeof string !== 'string') return
+
+    if(direction === 'left'){
+        return string.padStart(targetLength,sign)
+    }else if(direction === 'right'){
+        return string.padEnd(targetLength,sign)
+    }else {
+        throw new Error('Enter a valid sign')
+    }
+}
+
+console.log (padString(6767,7, 'x', 'right'))
+console.log (padString('6767',7, 'x', 'left'))
+
+
+// Write a JavaScript function to repeat a string for a specified time.
+
+function repeatString(str,num) {
+    if(typeof str !== 'string') return
+    if (typeof num !== 'number'){
+        console.log ('Error in the number')
+    }
+
+    let count = 1
+    let repeatedString = ''
+
+    while(count <= num) {
+        repeatedString += str
+        count ++
+    }
+    return repeatedString
+}
+
+console.log(repeatString('a'))
+
+// IMPROVED CODE
+// nb TAKE AWAYS :INstead of writing the return statment only you can include an empty string . When writing the error message include the concise message
+// it's alright to use built in methods
+function repeatString(str, num) {
+    if (typeof str !== 'string') {
+        console.error('First argument must be a string.');
+        return '';
+    }
+    
+    if (typeof num !== 'number' || num < 0) {
+        console.error('Second argument must be a non-negative number.');
+        return '';
+    }
+
+    // Use the built-in repeat method for simplicity
+    return str.repeat(num);
+}
+
+// Example usage:
+console.log(repeatString('hello', 3)); // Output: "hellohellohello"
+console.log(repeatString('hello', -1)); // Output: Error message and ""
+console.log(repeatString(123, 3)); // Output: Error message and ""
+
+
+// Write a JavaScript function to get a part of a string after a specified character.
+function stringAfterChar (str,char) {
+    let extractedString
+    if(typeof str !== 'string'){
+        console.error('Enter a valid string value')
+        return ''
+    }
+
+    if (typeof char === 'undefined') {
+        return str
+    }
+
+    for (let i = 0; i < str.length; i++) {
+        if(str[i] === char){
+             extractedString = str.slice(0,i)
+        }
+    }
+    return extractedString
+}
+
+console.log(stringAfterChar('w3resource: JavaScript Exercises', ':','a'))
+console.log(stringAfterChar('w3resource: JavaScript Exercises', 'E','b'))
+
+// NB findIndex and find is an array method while indexOf is a string
+
+function subStrAfterChars(str, char, pos)
+{
+  // If the position indicator is 'b' (before), return the substring after the specified character.
+  if(pos=='b')
+    return str.substring(str.indexOf(char) + 1);
+  // If the position indicator is 'a' (after), return the substring before the specified character.
+  else if(pos=='a') 
+    return str.substring(0, str.indexOf(char));
+  // If the position indicator is neither 'a' nor 'b', return the original string.
+  else
+    return str;  
+}
+
+// Test the subStrAfterChars function by printing the substring after ':' with the position indicator 'a'.
+console.log(subStrAfterChars('w3resource: JavaScript Exercises', ':','a'));
+
+// Test the subStrAfterChars function by printing the substring before 'E' with the position indicator 'b'.
+console.log(subStrAfterChars('w3resource: JavaScript Exercises', 'E','b'));
+
+
+
+
+
