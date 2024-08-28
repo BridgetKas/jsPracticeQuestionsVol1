@@ -436,7 +436,7 @@ function stringAfterChar (str,char) {
 console.log(stringAfterChar('w3resource: JavaScript Exercises', ':','a'))
 console.log(stringAfterChar('w3resource: JavaScript Exercises', 'E','b'))
 
-// NB findIndex and find is an array method while indexOf is a string
+// NB findIndex and find is an array method while indexOf is a string method
 
 function subStrAfterChars(str, char, pos)
 {
@@ -460,4 +460,14 @@ console.log(subStrAfterChars('w3resource: JavaScript Exercises', 'E','b'));
 
 
 
+// Write a JavaScript function to strip leading and trailing spaces from a string
+function stripSpaces(str){ 
+    if(typeof str !== 'string') {
+        console.error('Enter a valid string value')
+        return ''
+    }
+    return str.trim()
 
+}
+
+console.log(stripSpaces('  bizzy  '))
